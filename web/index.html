@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Renedix Websockets</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        
+        <script type="text/javascript" src="js/GameClientSettings.js"></script>
+        <script type="text/javascript" src="js/PlayerModel.js"></script>
+        <script type="text/javascript" src="js/MapModel.js"></script>
+        <script type="text/javascript" src="js/GenericWebsocket.js"></script>
+        <script type="text/javascript" src="js/GameWebsocket.js"></script>
+        <script type="text/javascript" src="js/GameCanvas.js"></script>
+        
+        
+    </head>
+    <body>
+        
+        <div class="container-fluid">
+            
+            <div class="row usernameContainer" style="padding-top: 10px">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8">
+                    <div class="row" style="padding-top: 10px">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-2">
+                            Username:
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control usernameInput"/>
+                        </div>
+                        <div class="col-sm-4"></div>                        
+                    </div>
+                    <!--
+                    <div class="row" style="padding-top: 10px">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-2">
+                            Password:
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="password" class="form-control" />
+                        </div>
+                        <div class="col-sm-4"></div>                        
+                    </div>-->
+                    
+                    <div class="row" style="padding-top: 10px">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-4">
+                            <input type="button" onclick="connectHandler(this)" value="Connect" class="connectOrDisconnectButton btn btn-info"/>
+                        </div>
+                        <div class="col-sm-4"></div>                        
+                    </div>
+                    
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+            
+            
+            
+            <div class="gameContainer" style="padding-top: 20px">
+                <input type="button" onclick="disconnect()" value="Disconnect" class="btn btn-info"/>
+                <br>
+                <h4 hidden>Users:</h4>
+                <select title="Users" multiple class="connectedUsers bg-success" hidden>
+                </select>
+                <canvas id="myCanvas"></canvas>
+                <div class="chatContainer" >
+                    <textarea cols="50" rows="30" class="chatMessages bg-info" readonly></textarea>
+                    <input type="text" class="chatDialog bg-info" onkeydown="sendMessageToServer(this)"/>
+                </div>
+                
+            </div>      
+        </div>
+        
+        <div id="output"></div>
+        <img id="spritesheet" src="spriteset2.png" width="768" height="512" hidden />
+        <img id="tileset" src="tileset.png" width="512" height="384" hidden />
+
+    </body>
+</html>

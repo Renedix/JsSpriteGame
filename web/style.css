@@ -1,0 +1,7 @@
+.usernameInputLabel{}
+.usernameInput{}
+.gameContainer{width:100%; display: none}
+.chatMessages{width:100%;resize:none;height:200px}
+.chatDialog{width:100%}
+.connectedUsers{width:100%}
+.chatContainer{width:1088px;}
